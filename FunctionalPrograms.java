@@ -5,18 +5,33 @@ import java.util.Scanner;
 public class FunctionalPrograms {
 
 	public static void main(String[] args) {
+
+		double secondRoot = 0, firstRoot = 0;
+
 		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the value of a ::");
+		double a = sc.nextDouble();
 
-		System.out.println("Enter the values of x ");
-		int x = sc.nextInt();
+		System.out.println("Enter the value of b ::");
+		double b = sc.nextDouble();
 
-		System.out.println("Enter the value of y");
-		int y = sc.nextInt();
+		System.out.println("Enter the value of c ::");
+		double c = sc.nextDouble();
 
-		double distance = Math.sqrt(x * x + y * y);
+		double delta = (b * b) - (4 * a * c);
+		double sqrt = Math.sqrt(delta);
 
-		System.out.println("the distace is " + distance);
+		if (delta > 0) {
+			firstRoot = (-b + sqrt) / (2 * a);
+			secondRoot = (-b - sqrt) / (2 * a);
+			System.out.println("Roots are :: " + firstRoot + " and " + secondRoot);
+		} 
+		else if (delta == 0) {
+			System.out.println("Root is :: " + (-b + sqrt) / (2 * a));
+		} 
+		else {
+			System.out.println("roots ate not equal");
+		}
 
 	}
-
 }
