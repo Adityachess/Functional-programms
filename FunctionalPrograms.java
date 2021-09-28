@@ -6,34 +6,35 @@ public class FunctionalPrograms {
 
 	public static void main(String[] args) {
 
-		System.out.print("Enter 2D array size : ");
-
 		Scanner sc = new Scanner(System.in);
 
-		int rows = sc.nextInt();
-		int columns = sc.nextInt();
+		System.out.println("Enter the number of integer :");
 
-		System.out.println("Enter array elements : ");
+		int number = sc.nextInt();
 
-		int twoD[][] = new int[rows][columns];
+		int[] arr = new int[number];
 
-		for (int i = 0; i < rows; i++) {
-			for (int j = 0; j < columns; j++) {
-				twoD[i][j] = sc.nextInt();
-			}
+		System.out.println("Enter the integers :");
+
+		for (int i = 0; i < number; i++) {
+			arr[i] = sc.nextInt();
 		}
 
-		System.out.print(" Data you entered : ");
+		int distinctCount = 0;
 
-		for (int[] x : twoD) {
+		for (int i = 0; i < number - 2; i++)
+			for (int j = i + 1; j < number - 1; j++)
+				for (int k = j + 1; k < number; k++)
 
-			for (int y : x) {
+					if ((arr[i] + arr[j] + arr[k]) == 0) {
 
-				System.out.print(y + "        ");
-			}
+						distinctCount++;
 
-			System.out.println();
-		}
+						System.out.println("(" + arr[i] + "," + arr[j] + "," + arr[k] + ")");
+
+					}
+
+		System.out.println("Total distinct triples : " + distinctCount);
 
 	}
 
